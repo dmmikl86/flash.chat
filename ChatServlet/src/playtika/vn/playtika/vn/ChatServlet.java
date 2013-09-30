@@ -1,17 +1,16 @@
+package playtika.vn;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import playtika.vn.core.UserService;
-import playtika.vn.core.server.Response;
+import javax.servlet.http.*;
 
 import com.google.gson.Gson;
 
-import config.GeneralCommand;
+import playtika.vn.config.GeneralCommand;
+import playtika.vn.core.UserService;
+import playtika.vn.core.server.Response;
 
 @SuppressWarnings("serial")
 public class ChatServlet extends HttpServlet {
