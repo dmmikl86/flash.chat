@@ -4,13 +4,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
-
-import com.google.gson.Gson;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import playtika.vn.config.GeneralCommand;
 import playtika.vn.core.UserService;
 import playtika.vn.core.server.Response;
+
+import com.google.gson.Gson;
 
 @SuppressWarnings("serial")
 public class ChatServlet extends HttpServlet {
@@ -21,13 +23,6 @@ public class ChatServlet extends HttpServlet {
     private String fromUser;
     private String toUser;
     private String json;
-
-    // public void service(HttpServletRequest request, HttpServletResponse
-    // response) throws ServletException, IOException {
-    // PrintWriter writer = response.getWriter();
-    // writer.println("Hello, World!");
-    // writer.close();
-    // }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

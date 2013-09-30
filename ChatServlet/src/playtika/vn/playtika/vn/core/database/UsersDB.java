@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
+import playtika.vn.config.GeneralSqlQuery;
+
 public class UsersDB {
-    Connection connection;
-    ResultSet result;
-    private final static String SQLINSERT = "INSERT INTO `usersdata` (`UserName`, `Password`, `Time`) VALUES (?, ?, ?);";
-    private final static String SQLSELECT = "SELECT * FROM usersdata;";
+    private Connection connection;
+    private ResultSet result;
 
     public UsersDB() {
 	createConnection();
@@ -44,7 +44,7 @@ public class UsersDB {
 
 	try {
 	    statement = connection.createStatement();
-	    result = statement.executeQuery(SQLSELECT);
+	    result = statement.executeQuery(GeneralSqlQuery.SQLSELECT);
 	    while (result.next()) {
 		System.out.println(result.getRow() + ". " + result.getString("UserName") + "\t" + result.getString("Password") + "\t"
 			+ result.getString("Time"));
@@ -61,7 +61,7 @@ public class UsersDB {
 	PreparedStatement statement = null;
 
 	try {
-	    statement = connection.prepareStatement(SQLINSERT);
+	    statement = connection.prepareStatement(GeneralSqlQuery.SQLINSERT);
 	    statement.setString(1, login);
 	    statement.setString(2, pass);
 	    statement.setString(3, Calendar.getInstance().getTime().toString());
