@@ -6,11 +6,13 @@ import java.util.List;
 import playtika.vn.core.database.UsersDB;
 import playtika.vn.core.user.User;
 
+// убрать циклы for each
+
 public class UserService {
 
     private volatile static UserService instance = null;
-    private volatile ArrayList<User> userList;
-    private volatile UsersDB usersDB;
+    private ArrayList<User> userList;
+    private UsersDB usersDB;
 
     private UserService() {
 	usersDB = new UsersDB();

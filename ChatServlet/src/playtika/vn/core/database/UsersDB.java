@@ -26,6 +26,7 @@ public class UsersDB {
 	}
 
 	try {
+	    // вынести в конфигурацию
 	    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "Gfhjkm1");
 	} catch (SQLException e) {
 	    e.printStackTrace();

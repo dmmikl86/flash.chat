@@ -20,7 +20,7 @@ public class User {
     public void sendMessage(String fromUser, String mesg) {
 
 	if (messages.get(fromUser) != null) {
-	    mesg = messages.get(fromUser).concat("\n" + mesg);
+	    mesg = messages.get(fromUser).concat(" | " + mesg);
 	}
 	messages.put(fromUser, mesg);
     }

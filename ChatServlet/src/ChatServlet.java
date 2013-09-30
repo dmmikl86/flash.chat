@@ -33,11 +33,12 @@ public class ChatServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	// добавить логирование
 	String command = req.getParameter(GeneralCommand.COMMAND);
 	Response result = new Response();
 	Gson gson = new Gson();
 	switch (command) {
+	// реализовать паттерн команда
 	case GeneralCommand.LOGIN:
 	    login = req.getParameter("login");
 	    pass = req.getParameter("password");
