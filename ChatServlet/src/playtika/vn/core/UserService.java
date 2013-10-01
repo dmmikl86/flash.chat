@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import playtika.vn.core.database.UsersDB;
 import playtika.vn.core.user.User;
 
-// убрать циклы for each
+// delete loops @for each@
 
 public class UserService {
 
