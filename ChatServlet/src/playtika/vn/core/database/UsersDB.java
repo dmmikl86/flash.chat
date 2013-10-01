@@ -1,5 +1,8 @@
 package playtika.vn.core.database;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
@@ -16,6 +20,8 @@ public class UsersDB {
     private final Logger logger = Logger.getLogger(this.getClass());
     private Connection connection;
     private ResultSet result;
+    private String loginDB;
+    private String passDB;
 
     public UsersDB() {
 	createConnection();
@@ -28,11 +34,11 @@ public class UsersDB {
 	} catch (ClassNotFoundException e1) {
 	    e1.printStackTrace();
 	}
-
+	loadProperties();
 	try {
-	    // add configuration file
-	    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "Gfhjkm1");
+	    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", loginDB, passDB);
 	} catch (SQLException e) {
+	    logger.warn(String.format("createConnection : SQLException"));
 	    e.printStackTrace();
 	}
 
@@ -41,6 +47,27 @@ public class UsersDB {
 	}
 
 	// getRows(); // test for select from DB
+    }
+
+    private void loadProperties() {
+	logger.debug(String.format("loadProperties"));
+	Properties props = new Properties();
+	FileInputStream in;
+	try {
+	    String dir = System.getProperty("user.dir");
+	    logger.debug(String.format("user.dir : %s", dir));
+	    in = new FileInputStream("D:/database.properties");
+	    props.load(in);
+	    loginDB = props.getProperty("login");
+	    passDB = props.getProperty("pass");
+	    in.close();
+	} catch (FileNotFoundException e) {
+	    logger.warn(String.format("loadProperties : FileNotFoundException"));
+	    e.printStackTrace();
+	} catch (IOException e) {
+	    logger.warn(String.format("loadProperties : IOException"));
+	    e.printStackTrace();
+	}
     }
 
     public String getRows() {
