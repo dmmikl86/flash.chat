@@ -3,8 +3,10 @@ package playtika.vn.core.user;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-public class User {
+import org.apache.log4j.Logger;
 
+public class User {
+    private final Logger logger = Logger.getLogger(this.getClass());
     private String name;
 
     public String getName() {
@@ -18,10 +20,10 @@ public class User {
     }
 
     public void sendMessage(String fromUser, String mesg) {
-
 	if (messages.get(fromUser) != null) {
 	    mesg = messages.get(fromUser).concat(" | " + mesg);
 	}
+	logger.debug(String.format("User : sendMessage() : fromUser = %s, mesg = %s", fromUser, mesg));
 	messages.put(fromUser, mesg);
     }
 
@@ -32,6 +34,7 @@ public class User {
 	    allMsg = allMsg.concat(message.getKey() + ": " + message.getValue() + "\n");
 	}
 	messages.clear();
+	logger.debug(String.format("User : getMessage() : allMsg = %s", allMsg));
 	return allMsg;
     }
 }
