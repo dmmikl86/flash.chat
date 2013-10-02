@@ -1,7 +1,8 @@
-package playtika.vn.command.core;
+package playtika.vn.command;
 
 import javax.servlet.http.HttpServletRequest;
 
+import playtika.vn.command.api.ICommand;
 import playtika.vn.core.UserService;
 import playtika.vn.core.server.Response;
 

@@ -1,3 +1,4 @@
+package playtika.vn.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import org.apache.log4j.Logger;
 import playtika.vn.command.GetCommand;
 import playtika.vn.command.LoginCommand;
 import playtika.vn.command.SendCommand;
-import playtika.vn.command.core.ICommand;
+import playtika.vn.command.api.ICommand;
 import playtika.vn.config.GeneralCommand;
 import playtika.vn.core.server.Response;
 

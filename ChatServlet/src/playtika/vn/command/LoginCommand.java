@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
-import playtika.vn.command.core.Command;
 import playtika.vn.core.server.Response;
 
 public class LoginCommand extends Command {

@@ -3,7 +3,7 @@
 <web-app>
   <servlet>
     <servlet-name>chat</servlet-name>
-    <servlet-class>ChatServlet</servlet-class>
+    <servlet-class>playtika.vn.servlet.ChatServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
