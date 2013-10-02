@@ -16,7 +16,7 @@ import playtika.vn.command.LoginCommand;
 import playtika.vn.command.SendCommand;
 import playtika.vn.command.api.ICommand;
 import playtika.vn.config.GeneralCommand;
-import playtika.vn.core.server.Response;
+import playtika.vn.server.Response;
 
 import com.google.gson.Gson;
 

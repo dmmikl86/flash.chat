@@ -1,4 +1,4 @@
-package playtika.vn.core.user;
+package playtika.vn.server;
 
 import java.util.Map.Entry;
 import java.util.TreeMap;

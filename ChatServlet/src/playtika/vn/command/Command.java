@@ -3,8 +3,8 @@ package playtika.vn.command;
 import javax.servlet.http.HttpServletRequest;
 
 import playtika.vn.command.api.ICommand;
-import playtika.vn.core.UserService;
-import playtika.vn.core.server.Response;
+import playtika.vn.server.Response;
+import playtika.vn.server.UserService;
 
 public class Command implements ICommand {
     protected Response result = new Response();;

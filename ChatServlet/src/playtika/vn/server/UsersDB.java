@@ -1,4 +1,4 @@
-package playtika.vn.core.database;
+package playtika.vn.server;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

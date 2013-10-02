@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
-import playtika.vn.core.server.Response;
+import playtika.vn.server.Response;
 
 public class GetCommand extends Command {
     private final Logger logger = Logger.getLogger(this.getClass());
