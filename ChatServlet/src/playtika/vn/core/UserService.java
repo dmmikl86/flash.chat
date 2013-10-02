@@ -49,10 +49,10 @@ public class UserService {
 	}
     }
 
-    public void sendMessage(String fromUser, String message, String toUser) {
+    public void sendMessage(String fromUser, String toUser, String message) {
 	logger.debug(String.format("UserService : sendMessage()"));
 	if (userMap.get(toUser) != null) {
-	    userMap.get(toUser).sendMessage(fromUser, message);
+	    userMap.get(toUser).addMessage(fromUser, message);
 	}
     }
 

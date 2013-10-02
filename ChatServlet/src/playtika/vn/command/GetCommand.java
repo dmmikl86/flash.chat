@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import playtika.vn.core.server.Response;
 
 public class GetCommand extends Command {
-    private String toUser;
     private final Logger logger = Logger.getLogger(this.getClass());
 
     @Override
@@ -15,7 +14,7 @@ public class GetCommand extends Command {
 	logger.debug(String.format("execute GetCommand"));
 	super.execute(command, req);
 
-	toUser = req.getParameter("toUser");
+	String toUser = req.getParameter("toUser");
 	
 	result.command = command;
 	result.messages = userService.getMessages(toUser);

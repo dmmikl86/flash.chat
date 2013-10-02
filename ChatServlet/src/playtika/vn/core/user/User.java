@@ -19,7 +19,7 @@ public class User {
 	this.name = name;
     }
 
-    public void sendMessage(String fromUser, String mesg) {
+    public void addMessage(String fromUser, String mesg) {
 	if (messages.get(fromUser) != null) {
 	    mesg = messages.get(fromUser).concat(" | " + mesg);
 	}
