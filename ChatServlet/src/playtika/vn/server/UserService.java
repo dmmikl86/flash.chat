@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import playtika.vn.server.datebase.UsersDB;
+import playtika.vn.server.user.User;
+
 public class UserService {
 
     private volatile static UserService instance = null;
