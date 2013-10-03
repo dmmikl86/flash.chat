@@ -2,16 +2,17 @@ package playtika.vn.command;
 
 import java.util.HashMap;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import playtika.vn.server.Response;
 
 public class LoginCommand extends Command {
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public Response execute(String command, HashMap<String, Object> req) {
-	logger.debug(String.format("execute LoginCommand"));
+	LOGGER.debug("execute LoginCommand");
 	super.execute(command, req);
 
 	String [] login = (String[]) req.get("login");

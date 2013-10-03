@@ -3,10 +3,11 @@ package playtika.vn.server.user;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class User {
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private String name;
 
     public String getName() {
@@ -23,7 +24,7 @@ public class User {
 	if (messages.get(fromUser) != null) {
 	    mesg = messages.get(fromUser).concat(" | " + mesg);
 	}
-	logger.debug(String.format("User : sendMessage() : fromUser = %s, mesg = %s", fromUser, mesg));
+	LOGGER.debug("User : sendMessage() : fromUser = {}, mesg = {}", fromUser, mesg);
 	messages.put(fromUser, mesg);
     }
 
@@ -34,7 +35,7 @@ public class User {
 	    allMsg = allMsg.concat(message.getKey() + ": " + message.getValue() + "\n");
 	}
 	messages.clear();
-	logger.debug(String.format("User : getMessage() : allMsg = %s", allMsg));
+	LOGGER.debug("User : getMessage() : allMsg = {}", allMsg);
 	return allMsg;
     }
 }
