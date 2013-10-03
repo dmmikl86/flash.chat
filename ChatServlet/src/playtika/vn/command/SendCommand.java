@@ -1,6 +1,6 @@
 package playtika.vn.command;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
@@ -10,15 +10,15 @@ public class SendCommand extends Command {
     private final Logger logger = Logger.getLogger(this.getClass());
 
     @Override
-    public Response execute(String command, HttpServletRequest req) {
+    public Response execute(String command, HashMap<String, Object> req) {
 	logger.debug(String.format("execute SendCommand"));
 	super.execute(command, req);
 
-	String message = req.getParameter("message");
-	String fromUser = req.getParameter("fromUser");
-	String toUser = req.getParameter("toUser");
+	String [] message = (String[]) req.get("message");
+	String []  fromUser = (String[]) req.get("fromUser");
+	String [] toUser = (String[]) req.get("toUser");
 
-	userService.sendMessage(fromUser, toUser, message);
+	userService.sendMessage(fromUser[0], toUser[0], message[0]);
 	result.command = command;
 	return result;
     }

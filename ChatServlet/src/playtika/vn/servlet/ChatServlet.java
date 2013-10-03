@@ -72,8 +72,13 @@ public class ChatServlet extends HttpServlet {
     private Response executeCommand(String command, HttpServletRequest req) {
 	LOG.debug(String.format("start executeCommand() : %s", command));
 	ICommand commandInstance = commands.get(command);
-	Response response = commandInstance.execute(command, req);
+	HashMap<String, Object> requestMap =extractedRequest(req);
+	Response response = commandInstance.execute(command, requestMap);
 	LOG.debug(String.format("finish executeCommand() : %s", response.toString()));
 	return response;
+    }
+
+    private HashMap<String, Object> extractedRequest(HttpServletRequest req) {
+	return (HashMap<String, Object>) req.getParameterMap();
     }
 }

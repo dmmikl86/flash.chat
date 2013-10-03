@@ -1,9 +1,9 @@
 package playtika.vn.command.api;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 import playtika.vn.server.Response;
 
 public interface ICommand {
-    public Response execute(String command, HttpServletRequest req);
+    public Response execute(String command, HashMap<String, Object> req);
 }
