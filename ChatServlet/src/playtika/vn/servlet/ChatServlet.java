@@ -3,6 +3,7 @@ package playtika.vn.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -73,13 +74,13 @@ public class ChatServlet extends HttpServlet {
     private Response executeCommand(String command, HttpServletRequest req) {
 	LOGGER.debug("start executeCommand() : {}", command);
 	ICommand commandInstance = commands.get(command);
-	HashMap<String, Object> requestMap =extractedRequest(req);
+	Map<String, Object> requestMap =extractedRequest(req);
 	Response response = commandInstance.execute(command, requestMap);
 	LOGGER.debug("finish executeCommand() : {}", response.toString());
 	return response;
     }
 
-    private HashMap<String, Object> extractedRequest(HttpServletRequest req) {
+    private Map<String, Object> extractedRequest(HttpServletRequest req) {
 	return (HashMap<String, Object>) req.getParameterMap();
     }
 }

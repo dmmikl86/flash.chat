@@ -1,6 +1,7 @@
 package playtika.vn.command;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import playtika.vn.command.api.ICommand;
 import playtika.vn.server.Response;
@@ -12,8 +13,8 @@ public class Command implements ICommand {
     protected HashMap<String, Object> req;
 
     @Override
-    public Response execute(String command, HashMap<String, Object> req) {
-	this.req = req;
+    public Response execute(String command, Map<String, Object> req) {
+	this.req = (HashMap<String, Object>) req;
 	return result;
     }
 
