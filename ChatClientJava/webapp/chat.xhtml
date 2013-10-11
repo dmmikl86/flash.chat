@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body bgcolor="white">
+	<h3>JSF 2.0 Hello World Example - chat.xhtml</h3>
+	<h4>
+		Chat FOR: #{loginBean.name}<br />UserPass: #{loginBean.pass}
+	</h4>
+	<h:form>
+		<h:selectOneListbox id="subscriptions"
+			style="height: 92px; width: 150px; position: relative; right: auto; top: auto; bottom: auto; left: auto">
+			<f:selectItem id="item1" itemLabel="News" itemValue="1" />
+			<f:selectItem id="item2" itemLabel="Sports" itemValue="2" />
+			<f:selectItem id="item3" itemLabel="Music" itemValue="3" />
+			<f:selectItem id="item4" itemLabel="Java" itemValue="4" />
+			<f:selectItem id="item5" itemLabel="Web" itemValue="5" />
+		</h:selectOneListbox>
+		<textarea readonly="true" style="height: 92px; width: 642px; "></textarea>
+		<br />____________________________________________________________________________________________________<br />
+		<br />
+		<h:inputText value="toUser" style="width: 646px; height: 46px; "></h:inputText>
+		<h:commandButton value="Send" style="height: 46px; width: 149px; "></h:commandButton>
+	</h:form>
+</h:body>
+</html>
