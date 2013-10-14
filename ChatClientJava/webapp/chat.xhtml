@@ -15,17 +15,12 @@
 		Chat FOR: #{loginBean.name}<br />UserPass: #{loginBean.pass}
 	</h4>
 	<h:form>
-		<h:selectOneListbox id="subscriptions"
-			style="height: 92px; width: 150px; position: relative; right: auto; top: auto; bottom: auto; left: auto">
-			<f:selectItem id="item1" itemLabel="News" itemValue="1" />
-			<f:selectItem id="item2" itemLabel="Sports" itemValue="2" />
-			<f:selectItem id="item3" itemLabel="Music" itemValue="3" />
-			<f:selectItem id="item4" itemLabel="Java" itemValue="4" />
-			<f:selectItem id="item5" itemLabel="Web" itemValue="5" />
-		</h:selectOneListbox>
-		<textarea readonly="true" style="height: 92px; width: 642px; "></textarea>
+		<textarea readonly="readonly" style="height: 92px; width: 642px;"></textarea>
 		<br />____________________________________________________________________________________________________<br />
 		<br />
+		<h:selectOneMenu>
+			<f:selectItems value="#{loginBean.users}" />
+		</h:selectOneMenu>
 		<h:inputText value="toUser" style="width: 646px; height: 46px; "></h:inputText>
 		<h:commandButton value="Send" style="height: 46px; width: 149px; "></h:commandButton>
 	</h:form>
