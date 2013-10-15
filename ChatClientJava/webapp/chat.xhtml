@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 <h:head>
 	<title>JSF 2.0 Hello World</title>
@@ -15,14 +16,18 @@
 		Chat FOR: #{loginBean.name}<br />UserPass: #{loginBean.pass}
 	</h4>
 	<h:form>
-		<textarea readonly="readonly" style="height: 92px; width: 642px;"></textarea>
+		<h:outputText
+			value="#{fn:replace(chatBean.allMessages,'\\n','&lt;br/&gt;')}"
+			escape="false"
+			style="height: 200px!important; overflow-y: scroll!important; display:block!important;" />
 		<br />____________________________________________________________________________________________________<br />
 		<br />
 		<h:selectOneMenu>
-			<f:selectItems value="#{loginBean.users}" />
+			<f:selectItems value="#{chatBean.users}" />
 		</h:selectOneMenu>
-		<h:inputText value="toUser" style="width: 646px; height: 46px; "></h:inputText>
-		<h:commandButton value="Send" style="height: 46px; width: 149px; "></h:commandButton>
+		<h:inputText style="width: 646px; height: 46px; "></h:inputText>
+		<h:commandButton value="Send" action="#{chatBean.sendMessage}"
+			style="height: 46px; width: 149px; "></h:commandButton>
 	</h:form>
 </h:body>
 </html>
