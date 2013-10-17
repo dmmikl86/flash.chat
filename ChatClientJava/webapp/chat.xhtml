@@ -13,7 +13,10 @@
 <h:body bgcolor="white">
 	<h3>JSF 2.0 Hello World Example - chat.xhtml</h3>
 	<h4>
-		Chat FOR: #{loginBean.name}<br />UserPass: #{loginBean.pass}
+		Welcome!!!
+		<br /> Chat FOR:
+		<h:outputText value="#{loginBean.name}" id="currentUser"/>
+		<br />UserPass: #{loginBean.pass}
 	</h4>
 	<h:form>
 		<h:outputText
@@ -22,12 +25,13 @@
 			style="height: 200px!important; overflow-y: scroll!important; display:block!important;" />
 		<br />____________________________________________________________________________________________________<br />
 		<br />
-		<h:selectOneMenu>
+		<h:selectOneMenu value="#{chatBean.toUser}">
 			<f:selectItems value="#{chatBean.users}" />
 		</h:selectOneMenu>
-		<h:inputText style="width: 646px; height: 46px; "></h:inputText>
+		<h:inputText value="#{chatBean.message}"
+			style="width: 646px; height: 46px; " />
 		<h:commandButton value="Send" action="#{chatBean.sendMessage}"
-			style="height: 46px; width: 149px; "></h:commandButton>
+			style="height: 46px; width: 149px; " />
 	</h:form>
 </h:body>
 </html>

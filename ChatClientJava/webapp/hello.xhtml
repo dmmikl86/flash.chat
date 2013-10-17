@@ -15,7 +15,7 @@
 		<br />
 		<h:inputText value="#{loginBean.pass}"></h:inputText>
 		<br />
-		<h:commandButton value="Login" action="chat"></h:commandButton>
+		<h:commandButton value="Login" action="#{loginBean.doLogin}"></h:commandButton>
 	</h:form>
 </h:body>
 </html>

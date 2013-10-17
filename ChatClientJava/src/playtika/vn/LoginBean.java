@@ -1,4 +1,4 @@
-package playtika.ua.vn;
+package playtika.vn;
 
 import java.io.Serializable;
 
@@ -13,6 +13,10 @@ public class LoginBean implements Serializable {
 
     private String name;
     private String pass;
+    
+    public String doLogin(){
+	return "chat";
+    }
 
     public String getPass() {
 	return pass;

@@ -20,29 +20,35 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>2.1.7</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>commons-httpclient</groupId> -->
+<!-- 			<artifactId>commons-httpclient</artifactId> -->
+<!-- 			<version>3.1</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3</version>
 		</dependency>
 
 	</dependencies>
