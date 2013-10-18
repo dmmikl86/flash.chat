@@ -8,8 +8,11 @@
 	<name>ChatClientJava Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-	<dependencies>
+	<properties>
+		<gson.version>2.2.4</gson.version>
+	</properties>
 
+	<dependencies>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -40,17 +43,21 @@
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>commons-httpclient</groupId> -->
-<!-- 			<artifactId>commons-httpclient</artifactId> -->
-<!-- 			<version>3.1</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>commons-httpclient</groupId> -->
+		<!-- <artifactId>commons-httpclient</artifactId> -->
+		<!-- <version>3.1</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.3</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

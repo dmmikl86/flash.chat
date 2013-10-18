@@ -1,15 +1,14 @@
 package playtika.vn.command;
 
-import java.util.Map;
+import playtika.vn.Response;
 
-import playtika.vn.command.api.ICommand;
 
-public class ShowMessageCommand implements ICommand {
+public class ShowMessageCommand extends Command {
 
     @Override
-    public void execute(String command, Map<String, String> params) {
-	// TODO Auto-generated method stub
-	
+    public Response execute(String command, Object params) {
+	super.execute(command, params);
+	return response;	
     }
 
 }

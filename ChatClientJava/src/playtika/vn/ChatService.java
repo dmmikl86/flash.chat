@@ -11,7 +11,7 @@ import playtika.vn.config.GeneralCommand;
 
 public class ChatService {
     private volatile static ChatService instance = null;
-    private static HashMap<String, ICommand> commandsMap = new HashMap<String, ICommand>();
+    private static Map<String, ICommand> commandsMap = new HashMap<String, ICommand>();
 
     private ChatService() {
 	commandsMap.put(GeneralCommand.SHOW_MESSAGE, new ShowMessageCommand());
@@ -29,9 +29,10 @@ public class ChatService {
 	return instance;
     }
 
-    public void executeCommand(String command, Map<String, String> params) {
-
+    public Response executeCommand(String command, Object params) {
+	Response response = new Response();
 	ICommand commandInstance = commandsMap.get(command);
-	commandInstance.execute(command, params);
+	response = commandInstance.execute(command, params);
+	return response;
     }
 }

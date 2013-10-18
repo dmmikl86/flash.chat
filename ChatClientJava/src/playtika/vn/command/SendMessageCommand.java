@@ -1,15 +1,22 @@
 package playtika.vn.command;
 
-import java.util.Map;
+import org.apache.http.message.BasicNameValuePair;
 
-import playtika.vn.command.api.ICommand;
+import playtika.vn.ChatService;
+import playtika.vn.Response;
+import playtika.vn.config.GeneralCommand;
 
-public class SendMessageCommand implements ICommand {
+public class SendMessageCommand extends Command {
 
     @Override
-    public void execute(String command, Map<String, String> params) {
-	// TODO Auto-generated method stub
+    public Response execute(String command, Object params) {
+	super.execute(command, params);
 	
+	data.add(new BasicNameValuePair("message", variables.get("message")));
+	data.add(new BasicNameValuePair("toUser", variables.get("toUser")));
+	data.add(new BasicNameValuePair("fromUser", variables.get("fromUser")));
+	
+	response = ChatService.getInstance().executeCommand(GeneralCommand.SERVER_CALL, data);
+	return response;
     }
-
 }

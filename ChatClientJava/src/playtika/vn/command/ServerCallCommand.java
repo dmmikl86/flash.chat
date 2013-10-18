@@ -1,60 +1,53 @@
 package playtika.vn.command;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
-import playtika.vn.command.api.ICommand;
+import com.google.gson.Gson;
 
-public class ServerCallCommand implements ICommand {
+import playtika.vn.Response;
+
+public class ServerCallCommand extends Command {
 
     @Override
-    public void execute(String command, Map<String, String> params) {
-
-	CloseableHttpClient httpclient = HttpClients.createDefault();
+    public Response execute(String command, Object params) {
 	try {
-	    HttpPost httpPost = new HttpPost("http://localhost:8080/ChatServlet/chat");
-	    List<NameValuePair> data = new ArrayList<NameValuePair>();
-	    data.add(new BasicNameValuePair("username", "vip"));
-	    data.add(new BasicNameValuePair("password", "secret"));
-	    httpPost.setEntity(new UrlEncodedFormEntity(data));
-	    CloseableHttpResponse response = httpclient.execute(httpPost);
+	    String url = "http://localhost:8080/ChatServlet/chat";
+	    CloseableHttpClient httpclient = HttpClients.createDefault();
+	    HttpPost httpPost = new HttpPost(url);
 
-	    try {
-		System.out.println(response.getStatusLine());
-		HttpEntity entity = response.getEntity();
-		// do something useful with the response body
-		// and ensure it is fully consumed
-		EntityUtils.consume(entity);
-	    } finally {
-		response.close();
+	    List<NameValuePair> data = (List<NameValuePair>) params;
+
+	    httpPost.setEntity(new UrlEncodedFormEntity(data));
+	    CloseableHttpResponse httpResponse = httpclient.execute(httpPost);
+
+	    BufferedReader rd = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent()));
+
+	    StringBuffer result = new StringBuffer();
+	    String line = "";
+	    while ((line = rd.readLine()) != null) {
+		result.append(line);
 	    }
-	} catch (ClientProtocolException e) {
-	    // TODO Auto-generated catch block
+	    response = convertJsonToResponce(result.toString());
+	} catch (Exception e) {
 	    e.printStackTrace();
-	} catch (IOException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} finally {
-	    try {
-		httpclient.close();
-	    } catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	    }
 	}
+	return response;
     }
 
+    private Response convertJsonToResponce(String result) {
+	Gson gson = new Gson();
+	Response res = new Response();
+	res = gson.fromJson(result, Response.class);
+//	LOGGER.debug("converteResponseToJson : {}", json);
+	return res;
+    }
 }

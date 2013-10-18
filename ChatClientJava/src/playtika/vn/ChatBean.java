@@ -43,10 +43,11 @@ public class ChatBean implements Serializable {
 	params.put("toUser", getToUser());
 	params.put("message", getMessage());
 
-	ChatService.getInstance().executeCommand(GeneralCommand.SERVER_CALL, params);
+	ChatService.getInstance().executeCommand(GeneralCommand.SEND_MESSAGE, params);
 
 	setAllMessages(">>> from User: ("+getCurrentUser()+") --- to User (" + toUser + ") : " + message + "\n" + allMessages);
 	setMessage("");
+	users.add(new SelectItem(new User("5Cuper"), "Cuper"));
     }
 
     public String getCurrentUser() {
