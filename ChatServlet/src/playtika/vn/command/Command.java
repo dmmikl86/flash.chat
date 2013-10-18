@@ -8,7 +8,7 @@ import playtika.vn.server.Response;
 import playtika.vn.server.UserService;
 
 public class Command implements ICommand {
-    protected Response result = new Response();;
+    protected Response result = new Response();
     protected UserService userService = UserService.getInstance();
     protected HashMap<String, Object> req;
 
