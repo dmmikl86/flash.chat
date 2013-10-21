@@ -1,9 +1,15 @@
-package playtika.vn;
+package playtika.vn.beans;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import playtika.vn.ChatService;
+import playtika.vn.Response;
+import playtika.vn.config.GeneralCommand;
 
 @ManagedBean
 @SessionScoped
@@ -13,8 +19,18 @@ public class LoginBean implements Serializable {
 
     private String name;
     private String pass;
+    private ChatService chatService;
+    
+    public LoginBean(){
+	chatService = new ChatService();
+    }
     
     public String doLogin(){
+	Map<String, String> params = new HashMap<String, String>();
+	params.put("login", getName());
+	params.put("password", getPass());
+
+	Response response = chatService.executeCommand(GeneralCommand.LOGIN, params);
 	return "chat";
     }
 

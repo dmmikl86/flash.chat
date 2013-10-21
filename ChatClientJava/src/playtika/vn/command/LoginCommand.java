@@ -5,15 +5,13 @@ import org.apache.http.message.BasicNameValuePair;
 import playtika.vn.Response;
 import playtika.vn.config.GeneralCommand;
 
-public class SendMessageCommand extends Command {
-
+public class LoginCommand extends Command {
     @Override
     public Response execute(String command, Object params) {
 	super.execute(command, params);
 	
-	data.add(new BasicNameValuePair("message", variables.get("message")));
-	data.add(new BasicNameValuePair("toUser", variables.get("toUser")));
-	data.add(new BasicNameValuePair("fromUser", variables.get("fromUser")));
+	data.add(new BasicNameValuePair("login", variables.get("login")));
+	data.add(new BasicNameValuePair("password", variables.get("password")));
 	
 	response = chatService.executeCommand(GeneralCommand.SERVER_CALL, data);
 	return response;

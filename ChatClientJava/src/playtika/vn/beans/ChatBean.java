@@ -1,4 +1,4 @@
-package playtika.vn;
+package playtika.vn.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,6 +13,9 @@ import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
+import playtika.vn.ChatService;
+import playtika.vn.Response;
+import playtika.vn.User;
 import playtika.vn.config.GeneralCommand;
 
 @ManagedBean
@@ -25,6 +28,7 @@ public class ChatBean implements Serializable {
     private String allMessages;
     private String message;
     private String toUser;
+    private ChatService chatService;
 
     public ChatBean() {
 	users = new ArrayList<SelectItem>();
@@ -32,9 +36,13 @@ public class ChatBean implements Serializable {
 	users.add(new SelectItem(new User("2Jerry"), "Jerry"));
 	users.add(new SelectItem(new User("3Cat"), "Cat"));
 	users.add(new SelectItem(new User("4Dog"), "Dog"));
+	
 	setAllMessages("Welcome to JAVA_CHAT");
 	UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
 	currentUser = (HtmlOutputText) viewRoot.findComponent("currentUser");
+	
+	chatService = new ChatService();
+	
     }
 
     public void sendMessage() {
@@ -43,11 +51,13 @@ public class ChatBean implements Serializable {
 	params.put("toUser", getToUser());
 	params.put("message", getMessage());
 
-	ChatService.getInstance().executeCommand(GeneralCommand.SEND_MESSAGE, params);
+	Response response = chatService.executeCommand(GeneralCommand.SEND_MESSAGE, params);
 
 	setAllMessages(">>> from User: ("+getCurrentUser()+") --- to User (" + toUser + ") : " + message + "\n" + allMessages);
 	setMessage("");
 	users.add(new SelectItem(new User("5Cuper"), "Cuper"));
+	
+	// прокся оповещает всех слушателей
     }
 
     public String getCurrentUser() {
