@@ -49,7 +49,7 @@ public class ChatBean implements Serializable {
 
 	chatService.executeCommand(GeneralCommand.SEND_MESSAGE, params);
 
-	setAllMessages(">>> from User: (" + getCurrentUser() + ") --- to User (" + toUser + ") : " + message + "\n" + allMessages);
+	setAllMessages(">>>"  + toUser + " : " + message + "\n" + allMessages);
 	setMessage("");
     }
     
