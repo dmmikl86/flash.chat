@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
 
-import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIViewRoot;
@@ -19,13 +17,10 @@ import playtika.vn.client.ChatService;
 import playtika.vn.client.Response;
 import playtika.vn.client.user.User;
 import playtika.vn.config.GeneralCommand;
-import playtika.vn.model.IObserver;
-import playtika.vn.model.Proxy;
-import playtika.vn.util.ChatTimerTask;
 
 @ManagedBean
 @SessionScoped
-public class ChatBean implements Serializable, IObserver {
+public class ChatBean implements Serializable {
 
     private static final long serialVersionUID = -4182842073251002567L;
     private List<SelectItem> users;
@@ -44,12 +39,6 @@ public class ChatBean implements Serializable, IObserver {
 
 	users = new ArrayList<SelectItem>();
 	users.add(new SelectItem(new User(getCurrentUser()), getCurrentUser()));
-
-	Timer timer = new Timer();
-	ChatTimerTask timerTask = new ChatTimerTask(getCurrentUser());
-	timer.schedule(timerTask, 1000, 2000);
-
-	Proxy.getInstance().registerObserver(this);
     }
 
     public void sendMessage() {
@@ -63,8 +52,14 @@ public class ChatBean implements Serializable, IObserver {
 	setAllMessages(">>> from User: (" + getCurrentUser() + ") --- to User (" + toUser + ") : " + message + "\n" + allMessages);
 	setMessage("");
     }
+    
+    public void handleEvent(){
+	Map<String, String> params = new HashMap<String, String>();
+	params.put("toUser", getCurrentUser());
+	Response response = chatService.executeCommand(GeneralCommand.GET_MESSAGE, params);
+	update(response);
+    }
 
-    @Override
     public void update(Response data) {
 	List<SelectItem> allUsers = new ArrayList<SelectItem>();
 	for (String user : data.list) {
@@ -72,16 +67,6 @@ public class ChatBean implements Serializable, IObserver {
 	}
 	setUsers(allUsers);
 	setAllMessages(data.messages + allMessages);
-	refreshPage();
-    }
-
-    private void refreshPage() {
-	FacesContext context = FacesContext.getCurrentInstance();
-        String viewId = context.getViewRoot().getViewId();
-        ViewHandler handler = context.getApplication().getViewHandler();
-        UIViewRoot root = handler.createView(context, viewId);
-        root.setViewId(viewId);
-        context.setViewRoot(root);
     }
 
     public String getCurrentUser() {

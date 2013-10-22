@@ -47,7 +47,6 @@ public class ServerCallCommand extends Command {
 	Gson gson = new Gson();
 	Response res = new Response();
 	res = gson.fromJson(result, Response.class);
-//	LOGGER.debug("converteResponseToJson : {}", json);
 	return res;
     }
 }

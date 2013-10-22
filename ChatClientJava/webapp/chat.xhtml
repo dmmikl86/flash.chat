@@ -17,8 +17,8 @@
 		<h:outputText value="#{loginBean.name}" id="currentUser" />
 		<br />UserPass: #{loginBean.pass}
 	</h4>
-	<h:form>
-		<h:outputText
+	<h:form id="form">
+		<h:outputText id="all_msg"
 			value="#{fn:replace(chatBean.allMessages,'\\n','&lt;br/&gt;')}"
 			escape="false"
 			style="height: 200px!important; overflow-y: scroll!important; display:block!important;" />
@@ -31,6 +31,16 @@
 			style="width: 646px; height: 46px; " />
 		<h:commandButton value="Send" action="#{chatBean.sendMessage}"
 			style="height: 46px; width: 149px; " />
+		<h:commandButton id="idOfButton">
+			 <f:ajax render="all_msg" listener="#{chatBean.handleEvent}" />
+		</h:commandButton>
+		<script>
+			var myVar = setInterval(function() {myTimer()}, 1000);
+			function myTimer() {
+				document.getElementById('form:idOfButton').click();
+			}
+		</script>
 	</h:form>
 </h:body>
 </html>
+
