@@ -1,4 +1,4 @@
-package playtika.vn;
+package playtika.vn.client;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package playtika.vn.command.api;
 
-import playtika.vn.Response;
+import playtika.vn.client.Response;
 
 
 public interface ICommand {

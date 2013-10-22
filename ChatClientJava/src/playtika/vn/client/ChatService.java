@@ -1,8 +1,9 @@
-package playtika.vn;
+package playtika.vn.client;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import playtika.vn.command.GetMessageCommand;
 import playtika.vn.command.LoginCommand;
 import playtika.vn.command.SendMessageCommand;
 import playtika.vn.command.ServerCallCommand;
@@ -16,6 +17,7 @@ public class ChatService {
 	commandsMap.put(GeneralCommand.LOGIN, new LoginCommand());
 	commandsMap.put(GeneralCommand.SEND_MESSAGE, new SendMessageCommand());
 	commandsMap.put(GeneralCommand.SERVER_CALL, new ServerCallCommand());
+	commandsMap.put(GeneralCommand.GET_MESSAGE, new GetMessageCommand());
     }
 
     public Response executeCommand(String command, Object params) {

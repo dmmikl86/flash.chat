@@ -7,8 +7,8 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import playtika.vn.ChatService;
-import playtika.vn.Response;
+import playtika.vn.client.ChatService;
+import playtika.vn.client.Response;
 import playtika.vn.command.api.ICommand;
 
 public class Command implements ICommand {

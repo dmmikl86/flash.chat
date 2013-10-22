@@ -2,7 +2,7 @@ package playtika.vn.command;
 
 import org.apache.http.message.BasicNameValuePair;
 
-import playtika.vn.Response;
+import playtika.vn.client.Response;
 import playtika.vn.config.GeneralCommand;
 
 public class LoginCommand extends Command {

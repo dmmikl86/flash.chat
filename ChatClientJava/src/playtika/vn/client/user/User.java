@@ -1,4 +1,4 @@
-package playtika.vn;
+package playtika.vn.client.user;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

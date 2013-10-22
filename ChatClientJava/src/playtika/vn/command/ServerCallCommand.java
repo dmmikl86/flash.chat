@@ -13,7 +13,7 @@ import org.apache.http.impl.client.HttpClients;
 
 import com.google.gson.Gson;
 
-import playtika.vn.Response;
+import playtika.vn.client.Response;
 
 public class ServerCallCommand extends Command {
 
