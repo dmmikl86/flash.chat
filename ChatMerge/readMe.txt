@@ -1,5 +1,5 @@
-положите файл "database.properties" из папки /res
+copy "database.properties" from folder /res
 
-в
+to
 
 "D:/database.properties"
