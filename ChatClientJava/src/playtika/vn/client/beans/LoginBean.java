@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import playtika.vn.client.ChatService;
 import playtika.vn.config.GeneralCommand;
+import vn.playtika.client.ClientService;
 
 @ManagedBean
 @SessionScoped
@@ -18,10 +18,10 @@ public class LoginBean implements Serializable {
 
     private String name;
     private String pass;
-    private ChatService chatService;
+    private ClientService chatService;
     
     public LoginBean(){
-	chatService = new ChatService();
+	chatService = new ClientService();
     }
     
     public String doLogin(){

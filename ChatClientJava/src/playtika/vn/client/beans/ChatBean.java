@@ -13,10 +13,10 @@ import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import playtika.vn.client.ChatService;
-import playtika.vn.client.Response;
 import playtika.vn.client.user.User;
 import playtika.vn.config.GeneralCommand;
+import vn.playtika.Response;
+import vn.playtika.client.ClientService;
 
 @ManagedBean
 @SessionScoped
@@ -28,10 +28,10 @@ public class ChatBean implements Serializable {
     private String allMessages;
     private String message;
     private String toUser;
-    private ChatService chatService;
+    private ClientService chatService;
 
     public ChatBean() {
-	chatService = new ChatService();
+	chatService = new ClientService();
 
 	setAllMessages("Welcome to JAVA_CHAT");
 	UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
