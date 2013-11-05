@@ -1,4 +1,4 @@
-package playtika.vn.client.beans;
+package vn.playtika.beans;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import playtika.vn.config.GeneralCommand;
 import vn.playtika.client.ClientService;
+import vn.playtika.config.GeneralCommand;
 
 @ManagedBean
 @SessionScoped

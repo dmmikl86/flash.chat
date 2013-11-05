@@ -1,6 +1,5 @@
 package vn.playtika.client.config;
 
-
 public class GeneralCommand {
     public static final String GET_MESSAGE = "getMessages";
     public static final String SEND_MESSAGE = "sendMessage";

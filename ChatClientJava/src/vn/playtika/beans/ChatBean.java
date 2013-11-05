@@ -1,4 +1,4 @@
-package playtika.vn.client.beans;
+package vn.playtika.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import playtika.vn.client.user.User;
-import playtika.vn.config.GeneralCommand;
 import vn.playtika.Response;
 import vn.playtika.client.ClientService;
+import vn.playtika.client.config.GeneralCommand;
+import vn.playtika.user.User;
 
 @ManagedBean
 @SessionScoped
@@ -49,11 +49,11 @@ public class ChatBean implements Serializable {
 
 	chatService.executeCommand(GeneralCommand.SEND_MESSAGE, params);
 
-	setAllMessages(">>>"  + toUser + " : " + message + "\n" + allMessages);
+	setAllMessages(">>>" + toUser + " : " + message + "\n" + allMessages);
 	setMessage("");
     }
-    
-    public void handleEvent(){
+
+    public void handleEvent() {
 	Map<String, String> params = new HashMap<String, String>();
 	params.put("toUser", getCurrentUser());
 	Response response = chatService.executeCommand(GeneralCommand.GET_MESSAGE, params);
