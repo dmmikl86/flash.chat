@@ -1,4 +1,4 @@
-package playtika.vn.config;
+package vn.playtika.config;
 
 public class GeneralCommand {
     public static final String LOGIN = "login";

@@ -1,4 +1,4 @@
-package playtika.vn.servlet;
+package vn.playtika.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import playtika.vn.command.GetCommand;
-import playtika.vn.command.LoginCommand;
-import playtika.vn.command.SendCommand;
-import playtika.vn.command.api.ICommand;
-import playtika.vn.config.GeneralCommand;
-import playtika.vn.server.Response;
+import vn.playtika.command.GetCommand;
+import vn.playtika.command.LoginCommand;
+import vn.playtika.command.SendCommand;
+import vn.playtika.command.api.ICommand;
+import vn.playtika.config.GeneralCommand;
+import vn.playtika.server.Response;
 
 import com.google.gson.Gson;
 
