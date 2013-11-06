@@ -1,11 +1,11 @@
-package vn.playtika.command;
+package playtika.vn.command;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import vn.playtika.command.api.ICommand;
-import vn.playtika.server.Response;
-import vn.playtika.server.UserService;
+import playtika.vn.command.api.ICommand;
+import playtika.vn.server.Response;
+import playtika.vn.server.UserService;
 
 public class Command implements ICommand {
     protected Response result = new Response();

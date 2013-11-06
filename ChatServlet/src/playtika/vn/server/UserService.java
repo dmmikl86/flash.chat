@@ -1,4 +1,4 @@
-package vn.playtika.server;
+package playtika.vn.server;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,8 +7,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import vn.playtika.server.datebase.UsersDB;
-import vn.playtika.server.user.User;
+import playtika.vn.server.datebase.UsersDB;
+import playtika.vn.server.user.User;
 
 public class UserService {
 

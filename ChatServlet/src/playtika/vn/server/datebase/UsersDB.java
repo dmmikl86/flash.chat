@@ -1,4 +1,4 @@
-package vn.playtika.server.datebase;
+package playtika.vn.server.datebase;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +15,7 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import vn.playtika.config.GeneralSqlQuery;
+import playtika.vn.config.GeneralSqlQuery;
 
 public class UsersDB {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());

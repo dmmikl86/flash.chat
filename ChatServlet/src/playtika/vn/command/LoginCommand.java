@@ -1,11 +1,11 @@
-package vn.playtika.command;
+package playtika.vn.command;
 
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import vn.playtika.server.Response;
+import playtika.vn.server.Response;
 
 public class LoginCommand extends Command {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());

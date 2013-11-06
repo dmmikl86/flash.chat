@@ -1,8 +1,8 @@
-package vn.playtika.command.api;
+package playtika.vn.command.api;
 
 import java.util.Map;
 
-import vn.playtika.server.Response;
+import playtika.vn.server.Response;
 
 public interface ICommand {
     public Response execute(String command, Map<String, Object> req);
