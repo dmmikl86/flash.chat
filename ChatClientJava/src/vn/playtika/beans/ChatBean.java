@@ -13,9 +13,9 @@ import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import vn.playtika.Response;
-import vn.playtika.client.ClientService;
-import vn.playtika.client.config.GeneralCommand;
+import vn.common.Response;
+import vn.common.client.ClientService;
+import vn.common.client.config.GeneralCommand;
 import vn.playtika.user.User;
 
 @ManagedBean

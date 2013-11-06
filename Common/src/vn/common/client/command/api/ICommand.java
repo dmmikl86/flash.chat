@@ -1,6 +1,6 @@
-package vn.playtika.client.command.api;
+package vn.common.client.command.api;
 
-import vn.playtika.Response;
+import vn.common.Response;
 
 public interface ICommand {
     Response execute(String command, Object params);

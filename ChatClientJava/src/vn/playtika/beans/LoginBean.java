@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import vn.playtika.client.ClientService;
-import vn.playtika.client.config.GeneralCommand;
+import vn.common.client.ClientService;
+import vn.common.client.config.GeneralCommand;
 
 @ManagedBean
 @SessionScoped

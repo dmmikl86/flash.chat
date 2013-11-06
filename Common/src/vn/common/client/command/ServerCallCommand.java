@@ -1,4 +1,4 @@
-package vn.playtika.client.command;
+package vn.common.client.command;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,7 +11,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-import vn.playtika.Response;
+import vn.common.Response;
 
 import com.google.gson.Gson;
 

@@ -1,9 +1,9 @@
-package vn.playtika.client.command;
+package vn.common.client.command;
 
 import org.apache.http.message.BasicNameValuePair;
 
-import vn.playtika.Response;
-import vn.playtika.client.config.GeneralCommand;
+import vn.common.Response;
+import vn.common.client.config.GeneralCommand;
 
 public class SendMessageCommand extends Command {
 

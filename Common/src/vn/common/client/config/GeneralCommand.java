@@ -1,4 +1,4 @@
-package vn.playtika.client.config;
+package vn.common.client.config;
 
 public class GeneralCommand {
     public static final String GET_MESSAGE = "getMessages";

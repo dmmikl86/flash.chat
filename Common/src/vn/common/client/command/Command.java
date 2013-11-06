@@ -1,4 +1,4 @@
-package vn.playtika.client.command;
+package vn.common.client.command;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,9 +7,9 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import vn.playtika.Response;
-import vn.playtika.client.ClientService;
-import vn.playtika.client.command.api.ICommand;
+import vn.common.Response;
+import vn.common.client.ClientService;
+import vn.common.client.command.api.ICommand;
 
 public class Command implements ICommand {
     protected Response response = new Response();
