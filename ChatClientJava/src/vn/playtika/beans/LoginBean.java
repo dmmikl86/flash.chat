@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import vn.playtika.client.ClientService;
-import vn.playtika.config.GeneralCommand;
+import vn.playtika.client.config.GeneralCommand;
 
 @ManagedBean
 @SessionScoped
