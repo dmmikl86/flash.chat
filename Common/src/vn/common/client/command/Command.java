@@ -7,8 +7,8 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import vn.common.Response;
+import vn.common.api.ICommand;
 import vn.common.client.ClientService;
-import vn.common.client.command.api.ICommand;
 
 public class Command<T> implements ICommand<T> {
     protected Response response = new Response();

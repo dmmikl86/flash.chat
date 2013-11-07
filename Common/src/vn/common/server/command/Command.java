@@ -1,20 +1,17 @@
 package vn.common.server.command;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import vn.common.Response;
-import vn.common.server.command.api.ICommand;
+import vn.common.api.ICommand;
 import vn.common.server.user.UserService;
 
-public class Command implements ICommand {
+public class Command<T> implements ICommand<T> {
     protected Response result = new Response();
     protected UserService userService = UserService.getInstance();
-    protected HashMap<String, Object> req;
+    protected T req;
 
     @Override
-    public Response execute(String command, Map<String, Object> req) {
-	this.req = (HashMap<String, Object>) req;
+    public Response execute(String command, T req) {
+	this.req = req;
 	return result;
     }
 }

@@ -4,7 +4,7 @@ import java.util.Map;
 
 import vn.common.Response;
 
-public class LoginCommand extends Command {
+public class LoginCommand extends Command<Map<String, Object>> {
 
     @Override
     public Response execute(String command, Map<String, Object> req) {

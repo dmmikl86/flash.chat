@@ -1,4 +1,4 @@
-package vn.common.client.command.api;
+package vn.common.api;
 
 import vn.common.Response;
 

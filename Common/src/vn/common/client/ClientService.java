@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import vn.common.Response;
+import vn.common.api.ICommand;
 import vn.common.client.command.GetMessageCommand;
 import vn.common.client.command.LoginCommand;
 import vn.common.client.command.SendMessageCommand;
 import vn.common.client.command.ServerCallCommand;
-import vn.common.client.command.api.ICommand;
 import vn.common.config.GeneralCommand;
 
 public class ClientService {
