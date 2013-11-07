@@ -21,9 +21,9 @@ public class ClientService {
 	commandsMap.put(GeneralCommand.GET_MESSAGE, new GetMessageCommand());
     }
 
-    public Response executeCommand(String command, Object params) {
+    public <T> Response executeCommand(String command, T params) {
 	Response response = new Response();
-	ICommand commandInstance = commandsMap.get(command);
+	ICommand<T> commandInstance = commandsMap.get(command);
 	response = commandInstance.execute(command, params);
 	return response;
     }

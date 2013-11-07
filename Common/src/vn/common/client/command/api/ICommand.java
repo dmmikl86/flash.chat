@@ -2,6 +2,6 @@ package vn.common.client.command.api;
 
 import vn.common.Response;
 
-public interface ICommand {
-    Response execute(String command, Object params);
+public interface ICommand<T> {
+    Response execute(String command, T params);
 }

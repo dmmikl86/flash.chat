@@ -15,16 +15,16 @@ import vn.common.Response;
 
 import com.google.gson.Gson;
 
-public class ServerCallCommand extends Command {
+public class ServerCallCommand extends Command<List<NameValuePair>> {
 
     @Override
-    public Response execute(String command, Object params) {
+    public Response execute(String command, List<NameValuePair> params) {
 	try {
 	    String url = "http://localhost:8080/ChatServlet/chat";
 	    CloseableHttpClient httpclient = HttpClients.createDefault();
 	    HttpPost httpPost = new HttpPost(url);
 
-	    List<NameValuePair> data = (List<NameValuePair>) params;
+	    List<NameValuePair> data = params;
 
 	    httpPost.setEntity(new UrlEncodedFormEntity(data));
 	    CloseableHttpResponse httpResponse = httpclient.execute(httpPost);
