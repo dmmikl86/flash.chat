@@ -1,4 +1,4 @@
-package vn.common.server;
+package vn.common.config;
 
 public class GeneralSqlQuery {
     public final static String SQLINSERT = "INSERT INTO `usersdata` (`UserName`, `Password`, `Time`) VALUES (?, ?, ?);";

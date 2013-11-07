@@ -1,4 +1,4 @@
-package vn.common.server;
+package vn.common.server.user;
 
 import java.util.Map.Entry;
 import java.util.TreeMap;

@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import vn.common.client.ClientService;
-import vn.common.client.config.GeneralCommand;
+import vn.common.config.GeneralCommand;
 
 @ManagedBean
 @SessionScoped

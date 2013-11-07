@@ -1,4 +1,4 @@
-package vn.common.server;
+package vn.common.server.database;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Properties;
+
+import vn.common.config.GeneralSqlQuery;
 
 public class UsersDB {
     private Connection connection;

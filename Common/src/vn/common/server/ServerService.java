@@ -6,7 +6,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import vn.common.Response;
-import vn.common.client.config.GeneralCommand;
+import vn.common.config.GeneralCommand;
+import vn.common.server.command.GetCommand;
+import vn.common.server.command.LoginCommand;
+import vn.common.server.command.SendCommand;
+import vn.common.server.command.api.ICommand;
 
 public class ServerService {
     private HashMap<String, ICommand> commands = new HashMap<String, ICommand>();

@@ -9,7 +9,7 @@ import vn.common.client.command.LoginCommand;
 import vn.common.client.command.SendMessageCommand;
 import vn.common.client.command.ServerCallCommand;
 import vn.common.client.command.api.ICommand;
-import vn.common.client.config.GeneralCommand;
+import vn.common.config.GeneralCommand;
 
 public class ClientService {
     private Map<String, ICommand> commandsMap = new HashMap<String, ICommand>();

@@ -1,4 +1,4 @@
-package vn.common.client.config;
+package vn.common.config;
 
 public class GeneralCommand {
     public static final String GET_MESSAGE = "getMessages";

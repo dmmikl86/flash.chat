@@ -3,7 +3,7 @@ package vn.common.client.command;
 import org.apache.http.message.BasicNameValuePair;
 
 import vn.common.Response;
-import vn.common.client.config.GeneralCommand;
+import vn.common.config.GeneralCommand;
 
 public class SendMessageCommand extends Command {
 

@@ -1,4 +1,4 @@
-package vn.common.server;
+package vn.common.server.command.api;
 
 import java.util.Map;
 

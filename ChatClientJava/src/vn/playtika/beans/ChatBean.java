@@ -15,7 +15,7 @@ import javax.faces.model.SelectItem;
 
 import vn.common.Response;
 import vn.common.client.ClientService;
-import vn.common.client.config.GeneralCommand;
+import vn.common.config.GeneralCommand;
 import vn.playtika.user.User;
 
 @ManagedBean

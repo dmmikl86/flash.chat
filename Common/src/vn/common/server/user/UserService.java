@@ -1,8 +1,10 @@
-package vn.common.server;
+package vn.common.server.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import vn.common.server.database.UsersDB;
 
 public class UserService {
 
