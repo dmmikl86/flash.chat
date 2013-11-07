@@ -1,13 +1,9 @@
-package playtika.vn.server.user;
+package vn.common.server.user;
 
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class User {
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private String name;
 
     public String getName() {
@@ -24,7 +20,6 @@ public class User {
 	if (messages.get(fromUser) != null) {
 	    mesg = messages.get(fromUser).concat(" | " + mesg);
 	}
-	LOGGER.debug("User : sendMessage() : fromUser = {}, mesg = {}", fromUser, mesg);
 	messages.put(fromUser, mesg);
     }
 
@@ -35,7 +30,6 @@ public class User {
 	    allMsg = allMsg.concat(message.getKey() + ": " + message.getValue() + "\n");
 	}
 	messages.clear();
-	LOGGER.debug("User : getMessage() : allMsg = {}", allMsg);
 	return allMsg;
     }
 }

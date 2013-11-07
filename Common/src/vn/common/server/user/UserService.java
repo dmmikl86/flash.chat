@@ -1,21 +1,16 @@
-package playtika.vn.server;
+package vn.common.server.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import playtika.vn.server.datebase.UsersDB;
-import playtika.vn.server.user.User;
+import vn.common.server.database.UsersDB;
 
 public class UserService {
 
     private volatile static UserService instance = null;
     private HashMap<String, User> userMap;
     private UsersDB usersDB;
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     private UserService() {
 	usersDB = new UsersDB();
@@ -24,7 +19,6 @@ public class UserService {
     }
 
     private void createTestUser() {
-	LOGGER.debug("UserService : createTestUser()");
 	User testUser = new User("testUser");
 	userMap.put("testUser", testUser);
     }
@@ -40,7 +34,6 @@ public class UserService {
     }
 
     public void loginUser(String login, String pass) {
-	LOGGER.debug("UserService : loginUser()");
 	usersDB.addRow(login, pass);
 	if (!login.equals("testUser")) {
 	    if (userMap.get(login) != null) {
@@ -51,14 +44,12 @@ public class UserService {
     }
 
     public void sendMessage(String fromUser, String toUser, String message) {
-	LOGGER.debug("UserService : sendMessage()");
 	if (userMap.get(toUser) != null) {
 	    userMap.get(toUser).addMessage(fromUser, message);
 	}
     }
 
     public String getMessages(String toUser) {
-	LOGGER.debug("UserService : getMessages()");
 	String msg = "";
 	if (userMap.get(toUser) != null) {
 	    msg = userMap.get(toUser).getMessage();

@@ -1,29 +1,27 @@
-package vn.playtika.client.command;
+package vn.common.client.command;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import vn.playtika.Response;
-import vn.playtika.client.ClientService;
-import vn.playtika.client.command.api.ICommand;
+import vn.common.Response;
+import vn.common.api.ICommand;
+import vn.common.client.ClientService;
 
-public class Command implements ICommand {
+public class Command<T> implements ICommand<T> {
     protected Response response = new Response();
-    protected HashMap<String, String> variables;
+    protected T variables;
     protected List<NameValuePair> data;
     protected ClientService chatService;
 
     @Override
-    public Response execute(String command, Object params) {
+    public Response execute(String command, T params) {
 	chatService = new ClientService();
-	variables = (HashMap<String, String>) params;
+	variables = params;
 	data = new ArrayList<NameValuePair>();
 	data.add(new BasicNameValuePair("command", command));
 	return response;
     }
-
 }

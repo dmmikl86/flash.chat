@@ -1,18 +1,13 @@
-package playtika.vn.command;
+package vn.common.server.command;
 
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import vn.common.Response;
 
-import playtika.vn.server.Response;
-
-public class SendCommand extends Command {
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+public class SendCommand extends Command<Map<String, Object>> {
 
     @Override
     public Response execute(String command, Map<String, Object> req) {
-	LOGGER.debug("execute SendCommand");
 	super.execute(command, req);
 
 	String [] message = (String[]) req.get("message");

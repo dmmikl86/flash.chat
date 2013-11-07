@@ -1,15 +1,15 @@
-package vn.playtika.client;
+package vn.common.client;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import vn.playtika.Response;
-import vn.playtika.client.command.GetMessageCommand;
-import vn.playtika.client.command.LoginCommand;
-import vn.playtika.client.command.SendMessageCommand;
-import vn.playtika.client.command.ServerCallCommand;
-import vn.playtika.client.command.api.ICommand;
-import vn.playtika.client.config.GeneralCommand;
+import vn.common.Response;
+import vn.common.api.ICommand;
+import vn.common.client.command.GetMessageCommand;
+import vn.common.client.command.LoginCommand;
+import vn.common.client.command.SendMessageCommand;
+import vn.common.client.command.ServerCallCommand;
+import vn.common.config.GeneralCommand;
 
 public class ClientService {
     private Map<String, ICommand> commandsMap = new HashMap<String, ICommand>();
@@ -21,9 +21,9 @@ public class ClientService {
 	commandsMap.put(GeneralCommand.GET_MESSAGE, new GetMessageCommand());
     }
 
-    public Response executeCommand(String command, Object params) {
+    public <T> Response executeCommand(String command, T params) {
 	Response response = new Response();
-	ICommand commandInstance = commandsMap.get(command);
+	ICommand<T> commandInstance = commandsMap.get(command);
 	response = commandInstance.execute(command, params);
 	return response;
     }

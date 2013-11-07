@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>Common</groupId>
-			<artifactId>vn.playtika.common</artifactId>
+			<artifactId>vn.common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

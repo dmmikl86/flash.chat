@@ -2,14 +2,27 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Common</groupId>
-	<artifactId>vn.playtika.common</artifactId>
+	<artifactId>vn.common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
 		<gson.version>2.2.4</gson.version>
+		<javax.servlet.version>2.5</javax.servlet.version>
+		<mysql.version>5.1.26</mysql.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${javax.servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
